@@ -1,0 +1,22 @@
+{
+	"name": "jet-form-builder-check-query-action",
+	"description": "JetFormBuilder Check Query Action",
+	"version": "1.0.0",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"dev": "webpack --mode development --progress -w",
+		"build": "webpack --mode production --progress"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.13.10",
+		"@babel/plugin-proposal-class-properties": "^7.13.0",
+		"@babel/plugin-transform-react-jsx": "^7.12.17",
+		"@babel/preset-env": "^7.13.10",
+		"babel-loader": "^8.1.0",
+		"vue-loader": "^15.9.6",
+		"vue-template-compiler": "^2.6.12",
+		"webpack": "^5.88.2",
+		"webpack-cli": "^4.0.0"
+	}
+}

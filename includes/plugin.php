@@ -50,6 +50,8 @@ class Plugin {
 
 		require $this->plugin_path( 'includes/jet-form-builder/actions/check-query.php' );
 		Jet_Form_Builder\Actions\Check_Query::register();
+		require $this->plugin_path( 'includes/jet-form-builder/actions/get-values-from-query.php' );
+		Jet_Form_Builder\Actions\Get_Query_Values::register();
 
 		add_action( 'jet-engine/register-macros', array( $this, 'register_macros' ) );
 

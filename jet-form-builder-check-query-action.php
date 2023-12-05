@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: JetFormBuilder - Check Query Result Action
+ * Plugin Name: JetFormBuilder - JetEngine Query Actions
  * Plugin URI:  https://crocoblock.com/
- * Description: Adds JetFormBuilder action which checks if a query has items/has no items. Also, adds a JetEngine macro to use in queries to get form field value.
- * Version:     1.0.0
+ * Description: Actions to get values from query and to check query results.
+ * Version:     1.1.0
  * Author:      Crocoblock
  * Author URI:  https://crocoblock.com/
  * Text Domain: jet-forms-addon-boilerplate-simple
@@ -23,7 +23,7 @@ add_action( 'plugins_loaded', function() {
 
 		add_action( 'admin_notices', function() {
 			$class = 'notice notice-error';
-			$message = '<b>WARNING!</b> <b>JetFormBuilder - Data Store Actions</b> plugin requires both <b>JetFormBuilder</b> and <b>JetEngine</b> plugins to be installed and activated.';
+			$message = '<b>WARNING!</b> <b>JetFormBuilder - JetEngine Query Actions</b> plugin requires both <b>JetFormBuilder</b> and <b>JetEngine</b> plugins to be installed and activated.';
 			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), wp_kses_post( $message ) );
 		} );
 

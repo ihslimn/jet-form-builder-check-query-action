@@ -1,6 +1,5 @@
 const {
 		  TextControl,
-		  ToggleControl,
 		  SelectControl,
 	  } = wp.components;
 
@@ -8,7 +7,7 @@ const {
 		  addAction,
 	  } = JetFBActions;
 
-addAction( 'jfbc_check_query', function CheckQueryAction( {
+addAction( 'jfbc_get_query_values', function GetQueryValues( {
 											   settings,
 											   label,
 											   onChangeSetting,
@@ -24,19 +23,9 @@ addAction( 'jfbc_check_query', function CheckQueryAction( {
             __nextHasNoMarginBottom
         />
 		<TextControl
-			label={ label( 'error_message' ) }
-			value={ settings.error_message }
-			onChange={ newVal => onChangeSetting( newVal, 'error_message' ) }
-		/>
-		<ToggleControl
-			label={ label( 'on_has_results' ) }
-			help={
-				settings.on_has_results
-					? 'Form will throw an error if query has results.'
-					: 'Form will throw an error if query has no results.'
-			}
-			checked={ settings.on_has_results }
-			onChange={ newVal => onChangeSetting( newVal, 'on_has_results' ) }
+			label={ label( 'store_to' ) }
+			value={ settings.store_to }
+			onChange={ newVal => onChangeSetting( newVal, 'store_to' ) }
 		/>
 	</>;
 } );

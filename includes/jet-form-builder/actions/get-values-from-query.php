@@ -42,8 +42,10 @@ class Get_Query_Values extends ActionBase {
 
 	public function editor_labels() {
 		return array(
-			'query_id'       => 'Query to get values from',
-			'store_to'       => 'Field to store results into',
+			'query_id' => 'Query to get values from',
+			'store_to' => 'Field to store results into',
+			'get_one'  => 'Get single value',
+			'property' => 'Property to get value from',
 		);
 	}
 
@@ -73,15 +75,24 @@ class Get_Query_Values extends ActionBase {
 		
 		$items = $query->get_items();
 
-		$items = array_map( function( $item ) {
+		$get_one = $this->settings['get_one'] ?? false;
 
-			$result = ( array ) $item;
+		if ( ! $get_one ) {
 
-			$result['_jfbc_item_id'] = jet_engine()->listings->data->get_current_object_id( $item );
+			$items = array_map( function( $item ) {
 
-			return $result;
-
-		}, $items );
+				$result = ( array ) $item;
+	
+				$result['_jfbc_item_id'] = jet_engine()->listings->data->get_current_object_id( $item );
+	
+				return $result;
+	
+			}, $items );
+			
+		} else {
+			$property = $this->settings['property'] ?? '';
+			$items    = $items[0]->$property ?? '';
+		}
 
 		jet_fb_context()->update_request( $items, $store_to );
 

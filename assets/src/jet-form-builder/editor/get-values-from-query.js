@@ -1,6 +1,7 @@
 const {
 		  TextControl,
 		  SelectControl,
+		  ToggleControl,
 	  } = wp.components;
 
 const {
@@ -27,5 +28,18 @@ addAction( 'jfbc_get_query_values', function GetQueryValues( {
 			value={ settings.store_to }
 			onChange={ newVal => onChangeSetting( newVal, 'store_to' ) }
 		/>
+		<ToggleControl
+			label={ label( 'get_one' ) }
+			checked={ settings.get_one ?? false }
+			onChange={ newVal => onChangeSetting( newVal, 'get_one' ) }
+		/>
+		{
+			settings.get_one && 
+			<TextControl
+				label={ label( 'property' ) }
+				value={ settings.property }
+				onChange={ newVal => onChangeSetting( newVal, 'property' ) }
+			/>
+		}
 	</>;
 } );

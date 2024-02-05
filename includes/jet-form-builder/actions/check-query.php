@@ -63,6 +63,8 @@ class Check_Query extends ActionBase {
 
 		$error_message = jet_fb_parse_macro( $error_message );
 
+		$error_message = wp_strip_all_tags( $error_message );
+
 		if ( ! $query_id && $on_has_results ) {
 			$this->throw_error( $error_message );
 		}

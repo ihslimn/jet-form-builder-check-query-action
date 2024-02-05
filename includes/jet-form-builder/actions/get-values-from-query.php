@@ -42,10 +42,12 @@ class Get_Query_Values extends ActionBase {
 
 	public function editor_labels() {
 		return array(
-			'query_id' => 'Query to get values from',
-			'store_to' => 'Field to store results into',
-			'get_one'  => 'Get single value',
-			'property' => 'Property to get value from',
+			'query_id'             => 'Query to get values from',
+			'store_to'             => 'Field to store results into',
+			'get_one'              => 'Get single value',
+			'property'             => 'Property to get value from',
+			'count_to'             => 'Field to store query count into',
+			'count_to_description' => 'Leave empty if no need to save count',
 		);
 	}
 
@@ -92,6 +94,10 @@ class Get_Query_Values extends ActionBase {
 		} else {
 			$property = $this->settings['property'] ?? '';
 			$items    = $items[0]->$property ?? '';
+		}
+
+		if ( ! empty( $this->settings['count_to'] ) ) {
+			jet_fb_context()->update_request( $query->get_items_total_count(), $this->settings['count_to'] );
 		}
 
 		jet_fb_context()->update_request( $items, $store_to );

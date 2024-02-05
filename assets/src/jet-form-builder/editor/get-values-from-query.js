@@ -28,6 +28,12 @@ addAction( 'jfbc_get_query_values', function GetQueryValues( {
 			value={ settings.store_to }
 			onChange={ newVal => onChangeSetting( newVal, 'store_to' ) }
 		/>
+		<TextControl
+			label={ label( 'count_to' ) }
+			help={ label( 'count_to_description' ) }
+			value={ settings.count_to }
+			onChange={ newVal => onChangeSetting( newVal, 'count_to' ) }
+		/>
 		<ToggleControl
 			label={ label( 'get_one' ) }
 			checked={ settings.get_one ?? false }

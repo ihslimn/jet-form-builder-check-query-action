@@ -47,7 +47,7 @@ We need to throw an error if that post has the value in it and the user entered 
   Note, that macros can be used to show form field result in the error message
 ![image](readme/check-query/promo/action-setup.png)
 
-Now we have a post with 'Croco2024' promo code, let's see what happens if the user enters an incorrect result:
+Now we have a post with 'Croco2024' promo code, let's see what happens if the user enters an invalid promo code:
 
 |  |  |
 | --- | --- |
